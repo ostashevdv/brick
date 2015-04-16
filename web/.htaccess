@@ -1,0 +1,9 @@
+Options +FollowSymlinks -MultiViews
+RewriteEngine on
+RewriteBase /
+# If a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Otherwise forward it to index.php
+RewriteRule . index.php
+#RewriteRule main.html news/default/index/ [NC,L]
