@@ -7,4 +7,6 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
-(new yii\web\Application(require(dirname(__DIR__).'/config/app.php')))->run();
+require(__DIR__ . '/../app/config/bootstrap.php');
+
+(new yii\web\Application(require(dirname(__DIR__).'/app/config/app.php')))->run();
