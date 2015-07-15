@@ -10,9 +10,7 @@ return [
     'runtimePath' => dirname(dirname(__DIR__)) . '/runtime',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'bootstrap' => ['gii', 'log'],
-    'controllerMap' => [
-        'tree' => 'arogachev\tree\controllers\TreeController',
-    ],
+
     'components' => [
         'assetManager' => [
             'appendTimestamp' => true,
@@ -50,18 +48,6 @@ return [
         'debug' => 'yii\debug\Module',
         'gii' => 'yii\gii\Module',
 
-        'treemanager' =>  [
-            'class' => '\kartik\tree\Module',
-        ],
-        'page' => [
-            'class' => 'brick\\wpo\\Module',
-            'controllerMap' => [
-                'admin' => [
-                    'class' => 'brick\wpo\controllers\AdminController',
-                    'layout' => '@brick/core/views/layouts/backend.php'
-                ]
-            ]
-        ],
     ],
     'extensions' => require(__DIR__ . '/../../extensions/extensions.php')
 ];
