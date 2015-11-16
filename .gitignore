@@ -20,3 +20,6 @@ composer.phar
 
 # Mac DS_Store Files
 .DS_Store
+
+*~
+/app/config/local.php
