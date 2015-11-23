@@ -9,7 +9,6 @@ return [
     'basePath' => dirname(__DIR__),
     'runtimePath' => dirname(dirname(__DIR__)) . '/runtime',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'bootstrap' => ['gii', 'log'],
 
     'components' => [
         'assetManager' => [
@@ -35,19 +34,7 @@ return [
             'class' => 'yii\caching\DummyCache',
             'keyPrefix' => 'brick_'
         ],
-        'request' => [
-            'cookieValidationKey' => 'fFKgKV1JN29zeh2cXiglBe70K9dgrxCU',
-        ],
-        'urlManager' => [
-            'class' => 'yii\web\UrlManager',
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-        ],
     ],
-    'modules' => [
-        'debug' => 'yii\debug\Module',
-        'gii' => 'yii\gii\Module',
 
-    ],
     'extensions' => require(__DIR__ . '/../../extensions/extensions.php')
 ];
