@@ -7,11 +7,6 @@ $web = [
         'request' => [
             'cookieValidationKey' => 'fFKgKV1JN29zeh2cXiglBe70K9dgrxCU',
         ],
-        'urlManager' => [
-            'class' => 'yii\web\UrlManager',
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-        ],
     ],
 ];
 

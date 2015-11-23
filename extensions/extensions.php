@@ -18,6 +18,13 @@ $extensionsDir = __DIR__;
  * ];
  */
 $extensions = [
+    'brick/engine' => [
+        'name' => 'brick/engine',
+        'version' => '9999999-dev',
+        'alias' => [
+            '@brick/engine' => $extensionsDir . '/brick-engine',
+        ],
+    ],
     'brick/wpo' => [
         'name' => 'brick/wpo',
         'version' => '9999999-dev',

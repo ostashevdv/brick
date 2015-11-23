@@ -34,6 +34,12 @@ return [
             'class' => 'yii\caching\DummyCache',
             'keyPrefix' => 'brick_'
         ],
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+        ],
     ],
 
     'extensions' => require(__DIR__ . '/../../extensions/extensions.php')

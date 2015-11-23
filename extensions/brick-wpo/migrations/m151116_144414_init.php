@@ -4,6 +4,8 @@ use yii\db\Migration;
 
 class m151116_144414_init extends Migration
 {
+    use \brick\engine\db\pgsql\SchemaBuilderTrait;
+
     public function safeUp()
     {
         $this->createTable('{{wpo_category}}', [
@@ -17,6 +19,8 @@ class m151116_144414_init extends Migration
             'rgyiit' => $this->integer()->notNull(),
             'depth' => $this->integer()->notNull(),
             //'tree' => $this->integer()->notNull(),
+
+            'extra' => $this->jsonb(),
         ]);
     }
     
