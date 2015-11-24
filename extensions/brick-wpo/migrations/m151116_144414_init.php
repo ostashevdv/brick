@@ -1,6 +1,7 @@
 <?php
 
 use yii\db\Migration;
+use brick\wpo\models\Category;
 
 class m151116_144414_init extends Migration
 {
@@ -14,11 +15,18 @@ class m151116_144414_init extends Migration
             'slug' => $this->string(255)->notNull(),
             'description' => $this->text(),
             'content' => $this->text(),
+            'status' => $this->integer()->notNull()->defaultValue(Category::STATUS_PUBLISHED),
+            'created_at' => $this->timestamp(),
+            'published_at' => $this->timestamp(),
+            'unpublished_at' => $this->timestamp(),
+
+            'author_id' => $this->integer(),
+            'redactor_id' => $this->integer(),
 
             'lft' => $this->integer()->notNull(),
-            'rgyiit' => $this->integer()->notNull(),
+            'rgt' => $this->integer()->notNull(),
             'depth' => $this->integer()->notNull(),
-            //'tree' => $this->integer()->notNull(),
+            'tree' => $this->integer()->notNull(),
 
             'extra' => $this->jsonb(),
         ]);

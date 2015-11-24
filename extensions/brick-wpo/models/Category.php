@@ -1,8 +1,9 @@
 <?php
 
-namespace app\models;
+namespace brick\wpo\models;
 
 use Yii;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "wpo_category".
@@ -12,49 +13,76 @@ use Yii;
  * @property string $slug
  * @property string $description
  * @property string $content
+ * @property integer $status
+ * @property string $created_at
+ * @property string $unpublished_at
+ * @property string $published_at
+ * @property integer $author_id
+ * @property integer $redactor_id
  * @property integer $lft
- * @property integer $rgyiit
+ * @property integer $rgt
  * @property integer $depth
  * @property string $extra
  */
 class Category extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
-    public static function tableName()
-    {
-        return 'wpo_category';
-    }
+    const STATUS_DRAFT = 0;
 
-    /**
-     * @inheritdoc
-     */
-    public function rules()
+    const STATUS_PUBLISHED = 10;
+
+    public static function getStatusList($index=null)
     {
         return [
-            [['name', 'slug', 'lft', 'rgyiit', 'depth'], 'required'],
-            [['description', 'content', 'extra'], 'string'],
-            [['lft', 'rgyiit', 'depth'], 'integer'],
-            [['name', 'slug'], 'string', 'max' => 255],
+            self::STATUS_DRAFT => 'Удалено',
+            self::STATUS_PUBLISHED => 'Опубликованно'
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => 'yii\\behaviors\\TimestampBehavior',
+                'attributes' => [
+                    parent::EVENT_BEFORE_INSERT => ['created_at'],
+                    parent::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => new Expression('NOW()'),
+
+            ],
+            'slug' => [
+                'class' => '\\yii\\behaviors\\SluggableBehavior',
+                'attribute' => 'name',
+                'immutable' => 'true',
+            ],
+        ];
+    }
+
+    public function rules()
+    {
+        return [
+            [['name'], 'required'],
+            [['description', 'content', 'extra'], 'string'],
+        ];
+    }
+
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'id',
             'name' => 'Name',
             'slug' => 'Slug',
             'description' => 'Description',
             'content' => 'Content',
             'lft' => 'Lft',
-            'rgyiit' => 'Rgyiit',
+            'rgt' => 'Rgt',
             'depth' => 'Depth',
             'extra' => 'Extra',
         ];
+    }
+
+    public static function tableName()
+    {
+        return '{{%wpo_category}}';
     }
 }
