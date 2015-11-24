@@ -13,19 +13,9 @@ use yii\filters\VerbFilter;
 
 class AdminController extends Controller
 {
-    use AjaxValidation;
+    public $layout = '//backend';
 
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+    use AjaxValidation;
 
     public function actionCategoryIndex()
     {
@@ -33,7 +23,7 @@ class AdminController extends Controller
             'query' => Category::find(),
         ]);
 
-        return $this->render('index', [
+        return $this->render('category/index', [
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -45,7 +35,7 @@ class AdminController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['category-index', 'id' => $model->id]);
         } else {
-            return $this->render('create', ['model' => $model]);
+            return $this->render('category/create', ['model' => $model]);
         }
     }
 
@@ -59,7 +49,7 @@ class AdminController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['category-index', 'id' => $model->id]);
         } else {
-            return $this->render('update', ['model' => $model]);
+            return $this->render('category/update', ['model' => $model]);
         }
     }
 

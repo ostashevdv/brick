@@ -41,6 +41,11 @@ return [
             'enableStrictParsing' => false,
         ],
     ],
+    'modules' => [
+        'catalog' => [
+            'class' => 'brick\\wpo\\Module',
+        ],
+    ],
 
     'extensions' => require(__DIR__ . '/../../extensions/extensions.php')
 ];
