@@ -15,13 +15,14 @@ use yii\db\Expression;
  * @property string $content
  * @property integer $status
  * @property string $created_at
- * @property string $unpublished_at
  * @property string $published_at
+ * @property string $unpublished_at
  * @property integer $author_id
  * @property integer $redactor_id
  * @property integer $lft
  * @property integer $rgt
  * @property integer $depth
+ * @property integer $tree
  * @property string $extra
  */
 class Category extends \yii\db\ActiveRecord
@@ -61,23 +62,33 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
-            [['description', 'content', 'extra'], 'string'],
+          [['name', 'slug', 'lft', 'rgt', 'depth', 'tree'], 'required'],
+          [['description', 'content', 'extra'], 'string'],
+          [['status', 'author_id', 'redactor_id', 'lft', 'rgt', 'depth', 'tree'], 'integer'],
+          [['created_at', 'published_at', 'unpublished_at'], 'safe'],
+          [['name', 'slug'], 'string', 'max' => 255],
         ];
     }
 
     public function attributeLabels()
     {
         return [
-            'id' => 'id',
-            'name' => 'Name',
-            'slug' => 'Slug',
-            'description' => 'Description',
-            'content' => 'Content',
-            'lft' => 'Lft',
-            'rgt' => 'Rgt',
-            'depth' => 'Depth',
-            'extra' => 'Extra',
+          'id' => 'ID',
+          'name' => 'Name',
+          'slug' => 'Slug',
+          'description' => 'Description',
+          'content' => 'Content',
+          'status' => 'Status',
+          'created_at' => 'Created At',
+          'published_at' => 'Published At',
+          'unpublished_at' => 'Unpublished At',
+          'author_id' => 'Author ID',
+          'redactor_id' => 'Redactor ID',
+          'lft' => 'Lft',
+          'rgt' => 'Rgt',
+          'depth' => 'Depth',
+          'tree' => 'Tree',
+          'extra' => 'Extra',
         ];
     }
 
