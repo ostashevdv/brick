@@ -2,8 +2,10 @@
 
 namespace brick\wpo\models;
 
+use creocoder\nestedsets\NestedSetsBehavior;
 use Yii;
 use yii\db\Expression;
+use arogachev\tree\behaviors\NestedSetsManagementBehavior;
 
 /**
  * This is the model class for table "wpo_category".
@@ -42,6 +44,10 @@ class Category extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
+            'nestedsets' => [
+                'class' => NestedSetsBehavior::className(),
+            ],
+            NestedSetsManagementBehavior::className(),
             'timestamp' => [
                 'class' => 'yii\\behaviors\\TimestampBehavior',
                 'attributes' => [
@@ -90,6 +96,18 @@ class Category extends \yii\db\ActiveRecord
           'tree' => 'Tree',
           'extra' => 'Extra',
         ];
+    }
+
+    public function transactions()
+    {
+        return [
+          self::SCENARIO_DEFAULT => self::OP_ALL,
+        ];
+    }
+
+    public static function find()
+    {
+        return new CategoryQuery(get_called_class());
     }
 
     public static function tableName()
