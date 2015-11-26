@@ -2,10 +2,10 @@
 
 namespace brick\wpo\models;
 
-use creocoder\nestedsets\NestedSetsBehavior;
+
 use Yii;
 use yii\db\Expression;
-use arogachev\tree\behaviors\NestedSetsManagementBehavior;
+
 
 /**
  * This is the model class for table "wpo_category".
@@ -45,9 +45,11 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'nestedsets' => [
-                'class' => NestedSetsBehavior::className(),
+                'class' => 'creocoder\nestedsets\\NestedSetsBehavior',
             ],
-            NestedSetsManagementBehavior::className(),
+            'nestedsetsmanagment' => [
+                'class' => 'arogachev\\tree\\behaviors\\NestedSetsManagementBehavior',
+            ],
             'timestamp' => [
                 'class' => 'yii\\behaviors\\TimestampBehavior',
                 'attributes' => [
@@ -55,7 +57,6 @@ class Category extends \yii\db\ActiveRecord
                     parent::EVENT_BEFORE_UPDATE => ['updated_at'],
                 ],
                 'value' => new Expression('NOW()'),
-
             ],
             'slug' => [
                 'class' => '\\yii\\behaviors\\SluggableBehavior',
@@ -68,7 +69,7 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-          [['name', 'slug', 'lft', 'rgt', 'depth', 'tree'], 'required'],
+          [['name'], 'required'],
           [['description', 'content', 'extra'], 'string'],
           [['status', 'author_id', 'redactor_id', 'lft', 'rgt', 'depth', 'tree'], 'integer'],
           [['created_at', 'published_at', 'unpublished_at'], 'safe'],
