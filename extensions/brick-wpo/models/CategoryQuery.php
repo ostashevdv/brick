@@ -1,18 +1,27 @@
 <?php
 namespace brick\wpo\models;
 
-use creocoder\nestedsets\NestedSetsQueryBehavior;
-
 /**
  * @author Dmitriy Ostashev <ostashev@gmail.com>
  */
 class CategoryQuery extends \yii\db\ActiveQuery
 {
-    public function behaviors()
+
+    /**
+     * @inheritdoc
+     * @return News[]|array
+     */
+    public function all($db = null)
     {
-        return [
-            'nestedsets' => NestedSetsQueryBehavior::className(),
-        ];
+        return parent::all($db);
     }
 
+    /**
+     * @inheritdoc
+     * @return News|array|null
+     */
+    public function one($db = null)
+    {
+        return parent::one($db);
+    }
 }

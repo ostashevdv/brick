@@ -21,35 +21,38 @@ use yii\db\Expression;
  * @property string $unpublished_at
  * @property integer $author_id
  * @property integer $redactor_id
- * @property integer $lft
- * @property integer $rgt
- * @property integer $depth
- * @property integer $tree
+ *
  * @property string $extra
+ *
+ * @method static Category findOne($condition)
  */
 class Category extends \yii\db\ActiveRecord
 {
-    const STATUS_DRAFT = 0;
+    const STATUS_NOT_FOUND = 404;
 
-    const STATUS_PUBLISHED = 10;
+    const STATUS_OK = 200;
 
-    public static function getStatusList($index=null)
+    public static function getStatusList()
     {
         return [
-            self::STATUS_DRAFT => 'Удалено',
-            self::STATUS_PUBLISHED => 'Опубликованно'
+            self::STATUS_NOT_FOUND => 'Удалено',
+            self::STATUS_OK => 'Опубликованно'
         ];
+    }
+
+    public static function find()
+    {
+        return new CategoryQuery(get_called_class());
+    }
+
+    public static function tableName()
+    {
+        return '{{%wpo_category}}';
     }
 
     public function behaviors()
     {
         return [
-            'nestedsets' => [
-                'class' => 'creocoder\nestedsets\\NestedSetsBehavior',
-            ],
-            'nestedsetsmanagment' => [
-                'class' => 'arogachev\\tree\\behaviors\\NestedSetsManagementBehavior',
-            ],
             'timestamp' => [
                 'class' => 'yii\\behaviors\\TimestampBehavior',
                 'attributes' => [
@@ -69,50 +72,37 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-          [['name'], 'required'],
-          [['description', 'content', 'extra'], 'string'],
-          [['status', 'author_id', 'redactor_id', 'lft', 'rgt', 'depth', 'tree'], 'integer'],
-          [['created_at', 'published_at', 'unpublished_at'], 'safe'],
-          [['name', 'slug'], 'string', 'max' => 255],
+            [['name'], 'required'],
+            [['description', 'content', 'extra'], 'string'],
+            [['status', 'author_id', 'redactor_id'], 'integer'],
+            [['created_at', 'published_at', 'unpublished_at'], 'safe'],
+            [['name', 'slug'], 'string', 'max' => 255],
         ];
     }
 
     public function attributeLabels()
     {
         return [
-          'id' => 'ID',
-          'name' => 'Name',
-          'slug' => 'Slug',
-          'description' => 'Description',
-          'content' => 'Content',
-          'status' => 'Status',
-          'created_at' => 'Created At',
-          'published_at' => 'Published At',
-          'unpublished_at' => 'Unpublished At',
-          'author_id' => 'Author ID',
-          'redactor_id' => 'Redactor ID',
-          'lft' => 'Lft',
-          'rgt' => 'Rgt',
-          'depth' => 'Depth',
-          'tree' => 'Tree',
-          'extra' => 'Extra',
+            'id' => 'ID',
+            'name' => 'Name',
+            'slug' => 'Slug',
+            'description' => 'Description',
+            'content' => 'Content',
+            'status' => 'Status',
+            'created_at' => 'Created At',
+            'published_at' => 'Published At',
+            'unpublished_at' => 'Unpublished At',
+            'author_id' => 'Author ID',
+            'redactor_id' => 'Redactor ID',
+
+            'extra' => 'Extra',
         ];
     }
 
     public function transactions()
     {
         return [
-          self::SCENARIO_DEFAULT => self::OP_ALL,
+            self::SCENARIO_DEFAULT => self::OP_ALL,
         ];
-    }
-
-    public static function find()
-    {
-        return new CategoryQuery(get_called_class());
-    }
-
-    public static function tableName()
-    {
-        return '{{%wpo_category}}';
     }
 }

@@ -31,7 +31,7 @@ class AdminController extends Controller
     public function actionCategoryCreate()
     {
         $model = new Category();
-
+        $this->performAjaxValidation($model);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['category-index', 'id' => $model->id]);
         } else {
@@ -45,7 +45,7 @@ class AdminController extends Controller
         if ($model === null) {
             throw new NotFoundHttpException();
         }
-
+        $this->performAjaxValidation($model);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['category-index', 'id' => $model->id]);
         } else {
@@ -59,6 +59,7 @@ class AdminController extends Controller
         if ($model === null) {
             throw new NotFoundHttpException();
         }
+
         /** @var Category $model */
         $model->updateAttributes(['status' => Category::STATUS_DRAFT]);
         return $this->redirect(['category-index']);

@@ -10,35 +10,38 @@ use yii\widgets\ActiveForm;
 
 <div class="category-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation' => true,
+        'enableClientValidation' => true,
+    ]); ?>
+
+    <?= Html::errorSummary($model) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?php \wbraganca\dynamicform\DynamicFormWidget::begin([
+        'widgetContainer' => 'dynamicform_wrapper', // required: only alphanumeric characters plus "_" [A-Za-z0-9_]
+        'widgetBody' => '.container-items', // required: css class selector
+        'widgetItem' => '.item', // required: css class
+        'limit' => 4, // the maximum times, an element can be cloned (default 999)
+        'min' => 1, // 0 or 1 (default 1)
+        'insertButton' => '.add-item', // css class
+        'deleteButton' => '.remove-item', // css class
+        //'model' => $modelsAddress[0],
+        'formId' => 'dynamic-form',
+        'formFields' => [
+            'full_name',
+            'address_line1',
+            'address_line2',
+            'city',
+            'state',
+            'postal_code',
+        ],
+    ]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?php \wbraganca\dynamicform\DynamicFormWidget::end() ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'published_at')->textInput() ?>
-
-    <?= $form->field($model, 'unpublished_at')->textInput() ?>
-
-    <?= $form->field($model, 'author_id')->textInput() ?>
-
-    <?= $form->field($model, 'redactor_id')->textInput() ?>
-
-    <?= $form->field($model, 'lft')->textInput() ?>
-
-    <?= $form->field($model, 'rgt')->textInput() ?>
-
-    <?= $form->field($model, 'depth')->textInput() ?>
-
-    <?= $form->field($model, 'tree')->textInput() ?>
 
     <?= $form->field($model, 'extra')->textInput() ?>
 
