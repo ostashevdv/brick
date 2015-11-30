@@ -1,47 +1,53 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ostashevdv
- * Date: 28.11.2015
- * Time: 23:35
- */
 
 namespace brick\wpo\models;
 
+use Yii;
 
 class Field extends \yii\base\Model
 {
-    const TYPE_INPUT = 'input';
+    const TYPE_STRING = 'string';
 
-    const TYPE_TEXTAREA = 'textarea';
+    const TYPE_INTEGER = 'integer';
 
-    //ckeditor
-    const TYPE_CONTENT = 'content';
-
-    const TYPE_DATE = 'date';
-
-    const TYPE_TIME = 'time';
-
-    const TYPE_DATETIME = 'datetime';
+    const TYPE_CHECKBOX = 'checkbox';
 
     const TYPE_PASSWORD = 'password';
 
-
+    const TYPE_TEXT = 'text';
+    public $type = self::TYPE_STRING;
     public $name;
-
-    public $attributeLabel;
-
-    public $type = self::TYPE_INPUT;
-
-    public $formOptions = [];
-
+    public $label;
     public $multiple = false;
+    public $options = [];
+    public $fieldOptions = [];
+
+    public static function typeList()
+    {
+        return [
+            self::TYPE_STRING => 'Строка',
+            self::TYPE_INTEGER => 'Число',
+            self::TYPE_CHECKBOX => 'Чекбокс',
+            self::TYPE_PASSWORD => 'Пароль',
+            self::TYPE_TEXT => 'Текст',
+        ];
+    }
 
     public function rules()
     {
         return [
-            [['name', 'attributeLabel'], 'required']
+            [['name', 'label', 'type'], 'required'],
+            ['name', 'string', 'max' => 255]
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'type' => 'Тип',
+            'name' => 'Имя',
+            'label' => 'Заголовок',
+            'multiple' => 'Множ. выбор',
+        ];
+    }
 }
