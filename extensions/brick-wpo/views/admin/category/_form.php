@@ -14,6 +14,7 @@ use wbraganca\dynamicform\DynamicFormWidget;
     <?php $form = ActiveForm::begin([
         'enableAjaxValidation' => true,
         'enableClientValidation' => true,
+        'id' => 'dynamic-form'
     ]); ?>
 
     <?= Html::errorSummary($model) ?>
@@ -63,11 +64,16 @@ use wbraganca\dynamicform\DynamicFormWidget;
                             <div class="clearfix"></div>
                         </div>
                         <div class="panel-body">
-
-                            <?= $form->field($field, "[{$i}]name")->textInput(['maxlength' => true]) ?>
-                            <?= $form->field($field, "[{$i}]label")->textInput(['maxlength' => true]) ?>
-
-                            <?= $form->field($field, "[{$i}]multiple")->checkbox(); ?>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-4"><?= $form->field($field,
+                                        "[{$i}]name")->textInput(['maxlength' => true]) ?></div>
+                                <div class="col-xs-12 col-sm-6 col-md-4"><?= $form->field($field,
+                                        "[{$i}]label")->textInput(['maxlength' => true]) ?></div>
+                                <div class="col-xs-1 col-sm-6 col-md-4"><?= $form->field($field,
+                                        "[{$i}]type")->dropDownList(\brick\wpo\models\Field::typeList()) ?></div>
+                                <div class="col-xs-12 col-sm-6 col-md-3"><?= $form->field($field,
+                                        "[{$i}]multiple")->checkbox(); ?></div>
+                            </div>
 
 
                         </div>
