@@ -18,11 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Category', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <div>
-        <?= NestedSets::widget([
-          'modelClass' => \brick\wpo\models\Category::className(),
-        ]) ?>
-    </div>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [

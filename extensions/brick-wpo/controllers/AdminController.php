@@ -13,9 +13,9 @@ use yii\filters\VerbFilter;
 
 class AdminController extends Controller
 {
-    public $layout = '//backend';
-
     use AjaxValidation;
+
+    public $layout = '//backend';
 
     public function actionCategoryIndex()
     {
@@ -41,10 +41,8 @@ class AdminController extends Controller
 
     public function actionCategoryUpdate($id)
     {
-        $model = Category::findOne($id);
-        if ($model === null) {
-            throw new NotFoundHttpException();
-        }
+        $model = $this->findModelOrFail(Category::class, $id);
+
         $this->performAjaxValidation($model);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['category-index', 'id' => $model->id]);
@@ -55,15 +53,31 @@ class AdminController extends Controller
 
     public function actionDelete($id)
     {
-        $model = Category::findOne($id);
+        $model = $this->findModelOrFail(Category::class, $id);
+        /** @var Category $model */
+        $model->updateAttributes(['status' => Category::STATUS_NOT_FOUND]);
+        return $this->redirect(['category-index']);
+    }
+
+    /**
+     * TODO: выпилить в трейт
+     * @param $class
+     * @param $condition
+     * @return null|static
+     * @throws NotFoundHttpException
+     * @throws \yii\base\InvalidConfigException
+     */
+    protected function findModelOrFail($class, $condition)
+    {
+        /** @var \yii\db\ActiveRecord $class */
+        $class = Yii::createObject($class);
+        $model = $class::findOne($condition);
+
         if ($model === null) {
             throw new NotFoundHttpException();
         }
 
-        /** @var Category $model */
-        $model->updateAttributes(['status' => Category::STATUS_DRAFT]);
-        return $this->redirect(['category-index']);
+        return $model;
     }
-
 
 }

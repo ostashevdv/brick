@@ -15,11 +15,17 @@ class Field extends \yii\base\Model
     const TYPE_PASSWORD = 'password';
 
     const TYPE_TEXT = 'text';
+
     public $type = self::TYPE_STRING;
+
     public $name;
+
     public $label;
+
     public $multiple = false;
+
     public $options = [];
+
     public $fieldOptions = [];
 
     public static function typeList()
@@ -37,7 +43,8 @@ class Field extends \yii\base\Model
     {
         return [
             [['name', 'label', 'type'], 'required'],
-            ['name', 'string', 'max' => 255]
+            ['name', 'string', 'max' => 255],
+            ['multiple', 'safe'],
         ];
     }
 

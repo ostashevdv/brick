@@ -32,6 +32,17 @@ class Category extends \yii\db\ActiveRecord
 
     const STATUS_OK = 200;
 
+    public function getExtraFieldsModels()
+    {
+        $fields = !empty($this->extra) ? json_decode($this->extra) : [];
+        $models[] = new Field();
+        foreach ($fields as $i => $field) {
+            $models[$i] = new Field();
+            $models[$i]->attributes = $field;
+        }
+        return $models;
+    }
+
     public static function getStatusList()
     {
         return [

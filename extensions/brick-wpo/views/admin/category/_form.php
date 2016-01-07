@@ -21,8 +21,7 @@ use wbraganca\dynamicform\DynamicFormWidget;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?php $fields[] = new \brick\wpo\models\Field(); ?>
-
+    <?php $fields = $model->getExtraFieldsModels() ?>
     <div class="panel panel-default">
         <div class="panel-heading"><h4>Дополнительные поля</h4></div>
         <div class="panel-body">
@@ -65,17 +64,11 @@ use wbraganca\dynamicform\DynamicFormWidget;
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-6 col-md-4"><?= $form->field($field,
-                                        "[{$i}]name")->textInput(['maxlength' => true]) ?></div>
-                                <div class="col-xs-12 col-sm-6 col-md-4"><?= $form->field($field,
-                                        "[{$i}]label")->textInput(['maxlength' => true]) ?></div>
-                                <div class="col-xs-1 col-sm-6 col-md-4"><?= $form->field($field,
-                                        "[{$i}]type")->dropDownList(\brick\wpo\models\Field::typeList()) ?></div>
-                                <div class="col-xs-12 col-sm-6 col-md-3"><?= $form->field($field,
-                                        "[{$i}]multiple")->checkbox(); ?></div>
+                                <div class="col-xs-12 col-sm-6 col-md-4"><?= $form->field($field, "[{$i}]name")->textInput(['maxlength' => true]) ?></div>
+                                <div class="col-xs-12 col-sm-6 col-md-4"><?= $form->field($field, "[{$i}]label")->textInput(['maxlength' => true]) ?></div>
+                                <div class="col-xs-1 col-sm-6 col-md-4"><?= $form->field($field, "[{$i}]type")->dropDownList(\brick\wpo\models\Field::typeList()) ?></div>
+                                <div class="col-xs-12 col-sm-6 col-md-3"><?= $form->field($field, "[{$i}]multiple")->checkbox(); ?></div>
                             </div>
-
-
                         </div>
                     </div>
                 <?php endforeach; ?>
