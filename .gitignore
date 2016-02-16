@@ -24,3 +24,4 @@ composer.phar
 *~
 /app/config/local.php
 /app/assets/node_modules
+/node_modules
