@@ -2,6 +2,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var babel_loader = require('babel-loader');
 
 function isDebug(){
     return false;
@@ -16,5 +17,19 @@ module.exports = {
         library: 'app'
     },
 
-    watch: true,
+    //watch: true,
+
+
+    module: {
+        loaders: [
+            {
+                test: /.jsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {presets: ['es2015', 'react']},
+            }
+
+        ],
+    }
+
 };

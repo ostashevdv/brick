@@ -1,7 +1,10 @@
 'use strict';
 
-let alert = require('./src/common/alert');
+import Hello from './src/hello/hello.jsx';
+
+
+let c_alert = require('./src/common/alert');
 
 alert('Hello world');
 
-exports.alert = alert;
+exports.alert = c_alert;
