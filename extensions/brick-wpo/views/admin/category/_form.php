@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use wbraganca\dynamicform\DynamicFormWidget;
 
 /* @var $this yii\web\View */
 /* @var $model brick\wpo\models\Category */
@@ -10,35 +11,72 @@ use yii\widgets\ActiveForm;
 
 <div class="category-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation' => true,
+        'enableClientValidation' => true,
+        'id' => 'dynamic-form'
+    ]); ?>
+
+    <?= Html::errorSummary($model) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+    <?php $fields = $model->getExtraFieldsModels() ?>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>Дополнительные поля</h4></div>
+        <div class="panel-body">
+            <?php DynamicFormWidget::begin([
+                'widgetContainer' => 'dynamicform_wrapper',
+                // required: only alphanumeric characters plus "_" [A-Za-z0-9_]
+                'widgetBody' => '.container-items',
+                // required: css class selector
+                'widgetItem' => '.item',
+                // required: css class
+                'limit' => 999,
+                // the maximum times, an element can be cloned (default 999)
+                'min' => 1,
+                // 0 or 1 (default 1)
+                'insertButton' => '.add-item',
+                // css class
+                'deleteButton' => '.remove-item',
+                // css class
+                'model' => $fields[0],
+                'formId' => 'dynamic-form',
+                'formFields' => [
+                    'name',
+                    'type',
+                    'label',
+                ],
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+            ]); ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+            <div class="container-items"><!-- widgetContainer -->
+                <?php foreach ($fields as $i => $field): ?>
+                    <div class="item panel panel-default"><!-- widgetBody -->
+                        <div class="panel-heading">
+                            <div class="pull-right">
+                                <button type="button" class="add-item btn btn-success btn-xs"><i
+                                        class="glyphicon glyphicon-plus"></i></button>
+                                <button type="button" class="remove-item btn btn-danger btn-xs"><i
+                                        class="glyphicon glyphicon-minus"></i></button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-4"><?= $form->field($field, "[{$i}]name")->textInput(['maxlength' => true]) ?></div>
+                                <div class="col-xs-12 col-sm-6 col-md-4"><?= $form->field($field, "[{$i}]label")->textInput(['maxlength' => true]) ?></div>
+                                <div class="col-xs-1 col-sm-6 col-md-4"><?= $form->field($field, "[{$i}]type")->dropDownList(\brick\wpo\models\Field::typeList()) ?></div>
+                                <div class="col-xs-12 col-sm-6 col-md-3"><?= $form->field($field, "[{$i}]multiple")->checkbox(); ?></div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <?php DynamicFormWidget::end(); ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'published_at')->textInput() ?>
-
-    <?= $form->field($model, 'unpublished_at')->textInput() ?>
-
-    <?= $form->field($model, 'author_id')->textInput() ?>
-
-    <?= $form->field($model, 'redactor_id')->textInput() ?>
-
-    <?= $form->field($model, 'lft')->textInput() ?>
-
-    <?= $form->field($model, 'rgt')->textInput() ?>
-
-    <?= $form->field($model, 'depth')->textInput() ?>
-
-    <?= $form->field($model, 'tree')->textInput() ?>
 
     <?= $form->field($model, 'extra')->textInput() ?>
 

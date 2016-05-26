@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2120ccff28e18a1545c540318101c3fe",
-    "content-hash": "1cd53d684ee16b1473c6e8a95bf3c15b",
+    "hash": "dcdb0c9397ab0b630fe7aee8f217778f",
+    "content-hash": "e8c7304555a69107516f44dd0d18459d",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -46,53 +46,6 @@
                 "web"
             ],
             "time": "2015-10-23 14:50:49"
-        },
-        {
-            "name": "arogachev/yii2-tree",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/arogachev/yii2-tree.git",
-                "reference": "001775e00016ec2a1f91177721700af2271768ca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/arogachev/yii2-tree/zipball/001775e00016ec2a1f91177721700af2271768ca",
-                "reference": "001775e00016ec2a1f91177721700af2271768ca",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jstree": "*",
-                "creocoder/yii2-nested-sets": "0.9.*",
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "arogachev\\tree\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Alexey Rogachev",
-                    "email": "arogachev90@gmail.com"
-                }
-            ],
-            "description": "Database tree structures management for Yii 2 framework",
-            "homepage": "https://github.com/arogachev/yii2-tree",
-            "keywords": [
-                "Active Record",
-                "nested set",
-                "nested sets",
-                "tree",
-                "widget",
-                "yii2"
-            ],
-            "time": "2015-06-13 16:39:58"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -145,16 +98,16 @@
         },
         {
             "name": "bower-asset/fontawesome",
-            "version": "v4.4.0",
+            "version": "v4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c"
+                "reference": "dbc8d1b9b67daaab357bcc41dbf549c3684cf5f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/e554555d73a44e0a7d11b0361ad7a5325a5f551c",
-                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/dbc8d1b9b67daaab357bcc41dbf549c3684cf5f1",
+                "reference": "dbc8d1b9b67daaab357bcc41dbf549c3684cf5f1",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -226,16 +179,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.2.4",
+            "version": "3.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-                "reference": "4e39624ea093d23c34f340c5bd8ab4e3a0aea17d"
+                "reference": "d08264a678865849c808359d126e3bddb9ec87a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/4e39624ea093d23c34f340c5bd8ab4e3a0aea17d",
-                "reference": "4e39624ea093d23c34f340c5bd8ab4e3a0aea17d",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/d08264a678865849c808359d126e3bddb9ec87a6",
+                "reference": "d08264a678865849c808359d126e3bddb9ec87a6",
                 "shasum": ""
             },
             "require": {
@@ -269,56 +222,6 @@
                 "mask",
                 "plugins"
             ]
-        },
-        {
-            "name": "bower-asset/jstree",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vakata/jstree.git",
-                "reference": "88412512e4310da10411ed5184af75f012f5ce70"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vakata/jstree/zipball/88412512e4310da10411ed5184af75f012f5ce70",
-                "reference": "88412512e4310da10411ed5184af75f012f5ce70",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.9.1"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "./dist/jstree.js",
-                    "./dist/themes/default/style.css"
-                ],
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "docs",
-                    "demo",
-                    "libs",
-                    "node_modules",
-                    "test",
-                    "libs",
-                    "jstree.jquery.json",
-                    "gruntfile.js",
-                    "package.json",
-                    "bower.json",
-                    "component.json",
-                    "LICENCE-MIT",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "3.2.1-dev"
-                }
-            },
-            "keywords": [
-                "jstree",
-                "tree",
-                "ui"
-            ],
-            "time": "2015-11-16 15:18:01"
         },
         {
             "name": "bower-asset/punycode",
@@ -489,46 +392,6 @@
             "time": "2013-12-10 17:49:58"
         },
         {
-            "name": "creocoder/yii2-nested-sets",
-            "version": "0.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/creocoder/yii2-nested-sets.git",
-                "reference": "cb8635a459b6246e5a144f096b992dcc30cf9954"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/creocoder/yii2-nested-sets/zipball/cb8635a459b6246e5a144f096b992dcc30cf9954",
-                "reference": "cb8635a459b6246e5a144f096b992dcc30cf9954",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "creocoder\\nestedsets\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Kochetov",
-                    "email": "creocoder@gmail.com"
-                }
-            ],
-            "description": "The nested sets behavior for the Yii framework",
-            "keywords": [
-                "nested sets",
-                "yii2"
-            ],
-            "time": "2015-01-27 10:53:51"
-        },
-        {
             "name": "dmstr/yii2-adminlte-asset",
             "version": "2.1.3",
             "source": {
@@ -628,20 +491,20 @@
         },
         {
             "name": "rmrevin/yii2-fontawesome",
-            "version": "2.12.2",
+            "version": "2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rmrevin/yii2-fontawesome.git",
-                "reference": "62308687477734c166753de0ad9e2333dc7dce32"
+                "reference": "2efbfacb22be59f373d11a7e3dfa9213e2ba18a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/62308687477734c166753de0ad9e2333dc7dce32",
-                "reference": "62308687477734c166753de0ad9e2333dc7dce32",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/2efbfacb22be59f373d11a7e3dfa9213e2ba18a9",
+                "reference": "2efbfacb22be59f373d11a7e3dfa9213e2ba18a9",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/fontawesome": "4.4.*",
+                "bower-asset/fontawesome": "4.5.*",
                 "php": ">=5.4.0",
                 "yiisoft/yii2": "2.0.*"
             },
@@ -676,7 +539,7 @@
                 "font",
                 "yii"
             ],
-            "time": "2015-11-20 09:17:45"
+            "time": "2015-11-26 15:24:53"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -730,6 +593,210 @@
                 "mailer"
             ],
             "time": "2015-09-04 05:47:20"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "2.6.x-dev",
+            "target-dir": "Symfony/Component/CssSelector",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "560e446b93883050a5874908652e8e912e8cbe44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/560e446b93883050a5874908652e8e912e8cbe44",
+                "reference": "560e446b93883050a5874908652e8e912e8cbe44",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-05-15 13:32:45"
+        },
+        {
+            "name": "symfony/dom-crawler",
+            "version": "2.6.x-dev",
+            "target-dir": "Symfony/Component/DomCrawler",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dom-crawler.git",
+                "reference": "301fca88f26fb57f5ea4020d3abf78d046e5c0ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/301fca88f26fb57f5ea4020d3abf78d046e5c0ee",
+                "reference": "301fca88f26fb57f5ea4020d3abf78d046e5c0ee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/css-selector": "~2.3",
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "suggest": {
+                "symfony/css-selector": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-07-09 16:02:48"
+        },
+        {
+            "name": "v0lume/yii2-meta-tags",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/v0lume/yii2-meta-tags.git",
+                "reference": "7a15791d8fbcc4dcffcb20d0d5a6a4f4c2d6c778"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/v0lume/yii2-meta-tags/zipball/7a15791d8fbcc4dcffcb20d0d5a6a4f4c2d6c778",
+                "reference": "7a15791d8fbcc4dcffcb20d0d5a6a4f4c2d6c778",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "v0lume\\yii2\\metaTags\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Shmanovsky",
+                    "email": "heads@xakep.ru"
+                }
+            ],
+            "description": "DB based model meta data for SEO",
+            "keywords": [
+                "Active Record",
+                "Behavior",
+                "extension",
+                "meta",
+                "meta tags",
+                "seo",
+                "yii2"
+            ],
+            "time": "2015-03-23 20:07:36"
+        },
+        {
+            "name": "wbraganca/yii2-dynamicform",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wbraganca/yii2-dynamicform.git",
+                "reference": "049770e48bff426fb7aeb0e86690ee689c514c70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wbraganca/yii2-dynamicform/zipball/049770e48bff426fb7aeb0e86690ee689c514c70",
+                "reference": "049770e48bff426fb7aeb0e86690ee689c514c70",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/css-selector": "~2.6.6",
+                "symfony/dom-crawler": "~2.6.6",
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "require-dev": {
+                "yiisoft/yii2-codeception": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "wbraganca\\dynamicform\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Wanderson Bragança",
+                    "email": "wanderson.wbc@gmail.com",
+                    "homepage": "http://wbraganca.com"
+                }
+            ],
+            "description": "It is widget to yii2 framework to clone form elements in a nested manner, maintaining accessibility.",
+            "keywords": [
+                "copy DOM element",
+                "extension",
+                "wbraganca",
+                "widget",
+                "yii2",
+                "yii2 dynamic form",
+                "yii2-dynamicform"
+            ],
+            "time": "2015-05-26 12:06:27"
         },
         {
             "name": "yiisoft/yii2",
@@ -826,12 +893,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "7644ecbc447907bac1e29fc6babc4b5e747523dd"
+                "reference": "f74b454bb60d91aafb9391512d4f7d2332e42146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/7644ecbc447907bac1e29fc6babc4b5e747523dd",
-                "reference": "7644ecbc447907bac1e29fc6babc4b5e747523dd",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/f74b454bb60d91aafb9391512d4f7d2332e42146",
+                "reference": "f74b454bb60d91aafb9391512d4f7d2332e42146",
                 "shasum": ""
             },
             "require": {
@@ -868,7 +935,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2015-11-20 18:20:01"
+            "time": "2015-11-25 12:07:26"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1178,9 +1245,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "arogachev/yii2-tree": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

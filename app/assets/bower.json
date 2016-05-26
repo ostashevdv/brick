@@ -1,0 +1,7 @@
+{
+  "name": "brick-bower-assets",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "latest"
+  }
+}
