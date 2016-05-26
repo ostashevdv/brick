@@ -5,7 +5,12 @@ if (file_exists(dirname(__DIR__) . '/app/config/local.php')) {
     $local = require(dirname(__DIR__) . '/app/config/local.php');
 }
 
-require(__DIR__ . '/../vendor/autoload.php');
+/** @var Composer\Autoload\ClassLoader $loader */
+$loader = require(__DIR__ . '/../vendor/autoload.php');
+$loader->addPsr4('brick\\engine\\', dirname(__DIR__) . '/extensions/brick-engine/');
+$loader->addPsr4('brick\\wpo\\', dirname(__DIR__) . '/extensions/brick-wpo/');
+
+
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 $config = \yii\helpers\ArrayHelper::merge(
