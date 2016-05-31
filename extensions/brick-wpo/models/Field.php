@@ -2,7 +2,7 @@
 
 namespace brick\wpo\models;
 
-use Yii;
+use \Yii;
 
 class Field extends \yii\base\Model
 {
@@ -28,7 +28,7 @@ class Field extends \yii\base\Model
 
     public $fieldOptions = [];
 
-    public static function typeList()
+    public static function listType()
     {
         return [
             self::TYPE_STRING => 'Строка',
